@@ -20,11 +20,11 @@
         insert into PROCESS_LOG_AUDIT
         (
             ACTION,
+            RUN_ID,
             PARENT_PROCESS_NAME,
             CHILD_PROCESS_NAME,
             PROCESSED_BY,
             CORRELATION_ID,
-            RUN_ID,
             INPUT_ROW_COUNT,
             INSERTED_COUNT,
             UPDATED_COUNT,
@@ -37,11 +37,11 @@
         values
         (
             '{{ action }}',
+            '{{ run_id }}',
             '{{ parent_process_name }}',
             '{{ child_process_name }}',
             '{{ processed_by }}',
             '{{ correlation_id }}',
-            '{{ run_id }},
             {{ input_row_count if input_row_count else 'null' }},
             {{ inserted_count if inserted_count else 'null' }},
             {{ updated_count if updated_count else 'null' }},
