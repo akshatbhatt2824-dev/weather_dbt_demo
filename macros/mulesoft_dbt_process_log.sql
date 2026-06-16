@@ -14,7 +14,6 @@
     error_reason=None
 ) %}
 
-{% set run_id = args.get('run_id') %}
     {% set sql %}
 
         insert into PROCESS_LOG_AUDIT
