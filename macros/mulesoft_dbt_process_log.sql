@@ -4,6 +4,7 @@
     child_process_name=None,
     processed_by=None,
     correlation_id=None,
+    run_id=None,
     input_row_count=None,
     inserted_count=None,
     updated_count=None,
@@ -13,6 +14,7 @@
     error_reason=None
 ) %}
 
+{% set run_id = args.get('run_id') %}
     {% set sql %}
 
         insert into PROCESS_LOG_AUDIT
@@ -22,6 +24,7 @@
             CHILD_PROCESS_NAME,
             PROCESSED_BY,
             CORRELATION_ID,
+            RUN_ID,
             INPUT_ROW_COUNT,
             INSERTED_COUNT,
             UPDATED_COUNT,
@@ -38,6 +41,7 @@
             '{{ child_process_name }}',
             '{{ processed_by }}',
             '{{ correlation_id }}',
+            '{{ run_id }},
             {{ input_row_count if input_row_count else 'null' }},
             {{ inserted_count if inserted_count else 'null' }},
             {{ updated_count if updated_count else 'null' }},
