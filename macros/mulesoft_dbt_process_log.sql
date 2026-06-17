@@ -4,7 +4,6 @@
     child_process_name=None,
     processed_by=None,
     correlation_id=None,
-    run_id=None,
     input_row_count=None,
     inserted_count=None,
     updated_count=None,
@@ -19,7 +18,6 @@
         insert into PROCESS_LOG_AUDIT
         (
             ACTION,
-            RUN_ID,
             PARENT_PROCESS_NAME,
             CHILD_PROCESS_NAME,
             PROCESSED_BY,
@@ -36,7 +34,6 @@
         values
         (
             '{{ action }}',
-            '{{ run_id }}',
             '{{ parent_process_name }}',
             '{{ child_process_name }}',
             '{{ processed_by }}',
