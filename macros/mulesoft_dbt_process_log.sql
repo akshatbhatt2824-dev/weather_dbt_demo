@@ -1,5 +1,5 @@
 {% macro mulesoft_dbt_process_log(
-    action,
+    action=None,
     parent_process_name,
     child_process_name=None,
     processed_by=None,
